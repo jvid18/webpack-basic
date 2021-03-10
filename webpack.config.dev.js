@@ -2,13 +2,10 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-	mode: 'production', // Specify mode explicitly 
+	mode: 'development', // Specify mode explicitly 
 	entry: './src/index.js', // Application input
 	output: { // Bundle output
 		path: path.resolve(__dirname, 'dist'), // Output directory
@@ -79,13 +76,5 @@ module.exports = {
 			]
 		}),
 		new Dotenv(),
-		new CleanWebpackPlugin(),
 	],
-	optimization: {
-		minimize: true,
-		minimizer: [
-			new CSSMinimizerPlugin(),
-			new TerserPlugin(),
-		],
-	},
 }
