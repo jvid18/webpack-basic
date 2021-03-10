@@ -1,5 +1,5 @@
 const getData = async (id) => {
-  const apiURl = id ? `${process.env.API}${id}` : API;
+  const apiURl = id ? `${process.env.API}${id}` : process.env.API;
   try {
     const response = await fetch(apiURl);
     const data = await response.json();
